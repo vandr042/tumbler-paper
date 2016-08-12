@@ -38,6 +38,7 @@ def ASvsVPvsCS(filename):
     headers = f.readline()
 
     xvals = [0]
+    c25yvals = [0.0]
     c10yvals = [0.0]
     c5yvals = [0.0]
     c4yvals = [0.0]
@@ -47,6 +48,7 @@ def ASvsVPvsCS(filename):
     for line in f:
         arr = line.split(',')
         i = put(xvals,int(arr[0]))
+        c25yvals.insert(i,float(arr[12]))
         c10yvals.insert(i,float(arr[10]))
         c5yvals.insert(i,float(arr[8]))
         c4yvals.insert(i,float(arr[6]))
@@ -59,6 +61,7 @@ def ASvsVPvsCS(filename):
     plt.plot(xvals,c4yvals, label = "c4", figure=curFig, lw = 5.0)
     plt.plot(xvals,c5yvals, label = "c5", figure=curFig, lw = 5.0)
     plt.plot(xvals,c10yvals, label = "c10", figure=curFig, lw = 5.0)
+    plt.plot(xvals,c25yvals, label = "c25", figure=curFig, lw = 5.0)
     
     plt.legend(bbox_to_anchor=(0.,1.02,1.,.102), loc=2, ncol=5, mode = "expand", borderaxespad=0)
     plt.xlabel("Vantage Points")
@@ -71,6 +74,7 @@ def TPvsVPvsCS(filename):
 
     headers = f.readline()
     xvals = [0]
+    c25yvals = [0.0]
     c10yvals = [0.0]
     c5yvals = [0.0]
     c4yvals = [0.0]
@@ -81,6 +85,7 @@ def TPvsVPvsCS(filename):
     for line in f:
         arr = line.split(',')
         i = put(xvals,int(arr[0]))
+        c25yvals.insert(i,float(arr[13]))
         c10yvals.insert(i,float(arr[11]))
         c5yvals.insert(i,float(arr[9]))
         c4yvals.insert(i,float(arr[7]))
@@ -92,6 +97,7 @@ def TPvsVPvsCS(filename):
     plt.plot(xvals,c4yvals, label = "c4", figure=curFig, lw = 5.0)
     plt.plot(xvals,c5yvals, label = "c5", figure=curFig, lw = 5.0)
     plt.plot(xvals,c10yvals, label = "c10", figure=curFig, lw = 5.0)
+    plt.plot(xvals,c25yvals, label = "c25", figure=curFig, lw = 5.0)
 
     plt.legend(bbox_to_anchor=(0.,1.02,1.,.102), loc=2, ncol=5, mode = "expand", borderaxespad=0)
     plt.xlabel("Vantage Points")
